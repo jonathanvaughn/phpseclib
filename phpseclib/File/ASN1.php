@@ -971,6 +971,10 @@ class File_ASN1
                             $size = $i;
                         }
                     }
+                    if ((isset($mapping['min'])) && ($mapping['min'] >= 1))
+                    {
+                        $size = $mapping['min']-1;
+                    }
 
                     $offset = 8 - (($size + 1) & 7);
                     $offset = $offset !== 8 ? $offset : 0;
